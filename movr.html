@@ -1,0 +1,31 @@
+<head>
+	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Movr</title>
+</head>
+
+<body>
+{{> navbar}}
+  <div class="container">
+	  <ul class="pass_list">
+		  {{#each passes}}
+		  {{> pass}}
+		  {{/each}}
+	  </ul>
+  </div>
+</body>
+
+<template name="pass">
+  	<li class="pass">
+		<div class="panel panel-default">
+			<div class="panel-body">
+  				<h3>{{name}}</h3>
+				<p><b>Date requested:</b> <span class="pass_requested_date">{{formatDate requested_date "short"}}</span></p>
+				<p><b>Date of pass:</b> <span class="pass_date">{{formatDate pass_date "short"}}</span></p>
+				<a class="btn btn-primary btn-raised">Grant pass</a>
+				<a class="btn btn-warning btn-flat">Deny</a>
+			</div>
+		</div>
+	</li>
+</template>

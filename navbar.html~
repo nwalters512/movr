@@ -1,0 +1,19 @@
+<template name="navbar">
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">Movr</a>
+	</div>
+	<div class="navbar-collapse collapse navbar-responsive-collappse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="javascript:void(0)">All passes</a></li>
+			<li><a href="javascript:void(0)">Pending passes</a></li>
+		</ul>
+	</div>
+</nav>
+</template>
+
