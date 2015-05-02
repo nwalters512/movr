@@ -1,0 +1,51 @@
+<template name="newStudent">
+	<div class="admin-header">
+		<div class="admin-header-title">
+			<h1>New Student</h1>
+		</div>
+	</div>
+	<form class="form-horizontal new-student">
+		<fieldset>
+			<div class="form-group">
+				<label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
+				<div class="col-lg-4">
+					<input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputLastName" class="col-lg-2 control-label">Last Name</label>
+				<div class="col-lg-4">
+					<input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+				<div class="col-lg-4">
+					<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputStudentId" class="col-lg-2 control-label">Student ID</label>
+				<div class="col-lg-4">
+					<input type="number" name="studentId" class="form-control" id="inputStudentId" placeholder="Student ID">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword" class="col-lg-2 control-label">Password</label>
+				<div class="col-lg-4">
+					<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+				</div>
+			</div>
+			{{#if loginError}}
+			<div class="form-group has-error">
+				<label for="inputPassword" class="control-label col-lg-10 col-lg-offset-2" style="text-align:left;">An error occurred while logging you in. Check your spelling and try again.</label>
+			</div>
+			{{/if}}
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<button type="submit" class="btn btn-primary">Create Student</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</template>

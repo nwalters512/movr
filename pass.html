@@ -1,0 +1,12 @@
+<template name="pass">
+	<li class="pass">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3>{{destination}}</h3>
+				<p><b>Date requested:</b> <span class="pass_requested_date">{{formatDate requested_date "short"}}</span></p>
+				<p><b>Date of pass:</b> <span class="pass_date">{{formatDate pass_date "short"}}</span></p>
+				<a class="btn btn-warning btn-flat delete-pass">Delete</a>
+			</div>
+		</div>
+	</li>
+</template>

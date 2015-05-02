@@ -1,0 +1,30 @@
+<template name="allPassList">
+	<ul class="pass_list">
+		{{#each passes}}
+		{{> pass}}
+		{{else}}
+		<li>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h1>No passes</h1>
+					<span>Looks like you don't have any passes right now.</span>
+				</div>
+			</div>
+		</li>
+		{{/each}}
+		<li>
+			<a href="/app/passes/new" class="panel panel-default btn btn-primary new-pass">
+				<div class="ripple-wrapper"></div>
+				<div class="panel-body">
+					<span class="new-pass">Create new pass</span>
+				</div>
+			</a>
+		</li>
+	</ul>
+<!--
+	<button class="btn btn-fab btn-raised btn-primary">
+	<i class="mdi-content-add"></i>
+	<div class="ripple-wrapper"></div>
+	</button>
+-->
+</template>

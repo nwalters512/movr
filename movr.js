@@ -14,15 +14,45 @@ if (Meteor.isClient) {
 		}
 	});
 
-  Template.body.helpers({
-	passes: [
-  		{ name: "Nathan Walters", requested_date: new Date(), pass_date: new Date()}
-  	]
-  });
+	UI.registerHelper('activeIfRouteIs', function(route) {
+		var currentRoute = Router.current();
+		console.log("Current route: " + currentRoute.route.getName());
+		var pattern = new RegExp(route);
+		return currentRoute && pattern.test(currentRoute.route.getName()) ? 'active' : '';
+	});
+
+	Template.pendingPassList.helpers({
+		'passes': function() {
+			return Passes.find().fetch();
+		}
+	});
+
+	Template.pendingPassList.rendered  = function() {
+		$.material.init();
+		console.log("pendingpass Init!");
+	};
+
+	Template.allPassList.helpers({
+		'passes': function() {
+			return Passes.find().fetch();
+		}
+	});
+
+	Template.allPassList.rendered = function() {
+		$.material.init();
+		console.log("allpass Init!");
+	};
+
+	Template.appLayout.rendered = function() {
+		$.material.init();
+		console.log("Init!");
+	};
+
+	Template.allPassList.events({
+		'click .delete-pass': function() {
+			Meteor.call('deletePass', this._id);
+		}
+	});
 }
-  /*Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });*/
+
+Passes = new Mongo.Collection('passes');

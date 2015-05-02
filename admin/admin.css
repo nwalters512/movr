@@ -1,0 +1,72 @@
+div.admin {
+	padding: 0px;
+	position: absolute;
+	top: 60px;
+	bottom:0px;
+	width: 100%;
+}
+
+.admin .navigation .item {
+	padding: 16px;
+	overflow: hidden;
+	border: 0;
+	border-radius: 0;
+	display: block;
+	position: relative;
+}
+
+.admin .navigation a.item {
+	text-decoration: none;
+}
+
+a.item:hover {
+	background-color: #f5f5f5;
+}
+
+.admin .navigation .item.active{
+	background-color: #009688;
+	color: white;
+}
+
+.admin .navigation .item.active:hover {
+	outline: none;
+}
+
+.admin .navigation .item.active:focus {
+	outline: none;
+}
+
+.admin .navigation {
+	background-color: white;
+	overflow: auto;
+	padding: 0px;
+	height: 100%;
+	margin: 0px;
+}
+
+.admin .content {
+	margin-top: 20px;
+}
+
+/* Stuff for individual admin pages */
+.admin-header {
+	display: block;
+	display:relative;
+	right: 0;
+	left: 0;
+	min-height: 70px;
+	margin-bottom: 20px;
+}
+
+.admin-header .admin-header-title {
+	display: block;
+	float: left;
+}
+
+.admin-header .admin-header-title h1 {
+	margin: 0;
+}
+
+.admin-header .admin-header-right {
+	float: right;
+}

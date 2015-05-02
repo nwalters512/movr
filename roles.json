@@ -1,0 +1,12 @@
+{
+  "roles": [
+    {
+      "role": "admin",
+      "description": "This person can do anything!"
+    },
+    {
+      "role": "delete-pass",
+      "description": "This person can delete any pass."
+    }
+  ]
+}

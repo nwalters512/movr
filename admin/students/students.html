@@ -1,0 +1,21 @@
+<template name="students">
+	<div class="admin-header">
+		<div class="admin-header-title">
+			<h1>Students</h1>
+		</div>
+		<div class="admin-header-right">
+			<button type="button" class="btn btn-primary btn-raised new-student">
+				Add student
+			</button>
+		</div>
+	</div>
+	{{#if students}}
+	<ul>
+		{{#each students}}
+		<li>{{profile.firstName}} {{profile.lastName}}</li>
+		{{/each}}
+	</ul>
+	{{else}}
+	There are currently no students in the database. Why not add one?
+	{{/if}}
+</template>
