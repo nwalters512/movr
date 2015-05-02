@@ -3,11 +3,11 @@
 	{{#if isInRole 'admin'}}
 	<div class="container-fluid admin">
 		<div class="col-md-2 navigation list-group">
-			<a href="/app/admin/" class="item {{activeIfRouteIs 'app.admin'}}">Dashboard</a>
-			<a href="/app/admin/students" class="item {{activeIfRouteIs 'app.admin.students'}}">Students</a>
-			<a href="/app/admin/teachers" class="item {{activeIfRouteIs 'app.admin.teachers'}}">Teachers</a>
-			<a href="/app/admin/administrators" class="item {{activeIfRouteIs 'app.admin.administrators'}}">Administrators</a>
-			<a href="/app/admin/places" class="item {{activeIfRouteIs 'app.admin.places'}}">Places</a>
+			<a href="/app/admin/" class="item {{activeIfRouteMatches 'app.admin'}}">Dashboard</a>
+			<a href="/app/admin/students" class="item {{activeIfRouteMatches 'app.admin.students(.*)'}}">Students</a>
+			<a href="/app/admin/teachers" class="item {{activeIfRouteMatches 'app.admin.teachers(.*)'}}">Teachers</a>
+			<a href="/app/admin/administrators" class="item {{activeIfRouteMatches 'app.admin.administrators(.*)'}}">Administrators</a>
+			<a href="/app/admin/places" class="item {{activeIfRouteMatches 'app.admin.places(.*)'}}">Places</a>
 		</div>
 		<div class="col-md-8 content">
 			<div class="panel panel-default">

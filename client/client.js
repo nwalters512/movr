@@ -16,10 +16,11 @@ UI.registerHelper("formatDate", function(datetime, format) {
 	}
 });
 
-UI.registerHelper('activeIfRouteIs', function(route) {
+UI.registerHelper('activeIfRouteMatches', function(route) {
 	var currentRoute = Router.current();
 	console.log("Current route: " + currentRoute.route.getName());
-	var pattern = new RegExp(route);
+	// Use ^ and $ to match exactly
+	var pattern = new RegExp('^' + route + '$');
 	return currentRoute && pattern.test(currentRoute.route.getName()) ? 'active' : '';
 });
 

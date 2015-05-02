@@ -13,10 +13,10 @@
 			<ul class="nav navbar-nav">
 				{{#if currentUser}}
 				{{#if isInRole 'admin'}}
-				<li class="{{activeIfRouteIs 'app.admin(.*)'}}"><a href="/app/admin">Admin</a></li>
+				<li class="{{activeIfRouteMatches 'app.admin(.*)'}}"><a href="/app/admin">Admin</a></li>
 				{{/if}}
-				<li class="{{activeIfRouteIs 'app.passes.all'}}"><a href="/app/passes/all">All passes</a></li>
-				<li class="{{activeIfRouteIs 'app.passes.pending'}}"><a href="/app/passes/pending">Pending passes</a></li>
+				<li class="{{activeIfRouteMatches 'app.passes.all'}}"><a href="/app/passes/all">All passes</a></li>
+				<li class="{{activeIfRouteMatches 'app.passes.pending'}}"><a href="/app/passes/pending">Pending passes</a></li>
 				{{/if}}
 			</ul>
 
