@@ -1,18 +1,18 @@
 if(Meteor.isClient) {
 	Template.newPass.events({
 		'click .today': function() {
-			$("#inputPassDate")[0].valueAsDate = new Date();
+			$("#inputPassDate").datepicker('update', new Date());
 		},
 
 		'click .tomorrow': function() {
 			// Apply tomorrow's date to date picker
 			var today = moment();
-			var tomorrow = today.add('days', 1);
-			$("#inputPassDate")[0].valueAsDate = tomorrow.toDate();
+			var tomorrow = today.add(1, 'days');
+			$("#inputPassDate").datepicker('update', tomorrow.toDate());
 		},
 
 		'submit .new-pass': function() {
-			var passDateVal = event.target.passDate.valueAsDate;
+			var passDateVal = $("#inputPassDate").datepicker('getDate');
 			var destinationVal = event.target.destination.value;
 			var passData = {
 				passDate: passDateVal,
@@ -29,6 +29,9 @@ if(Meteor.isClient) {
 
 	Template.newPass.rendered = function() {
 		// Default to the current date
-		$("#inputPassDate")[0].valueAsDate = new Date();
+		$("#inputPassDate").datepicker({
+			startDate: new Date()
+		});
+		$("#inputPassDate").datepicker('update', new Date());
 	};
 }
