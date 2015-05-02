@@ -12,9 +12,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputDestination" class="col-lg-4 control-label">Destination</label>
+						<label for="input-destination" class="col-lg-4 control-label">Destination</label>
 						<div class="col-lg-8">
-							<input type="text" name="destination" class="form-control" id="inputDestination" placeholder="Destination">
+						<select name="destination" class="form-control" id="input-destination">
+							{{#each generateLocationOptions}}
+							<option value="{{value}}">{{name}}</option>
+							{{/each}}
+						</select>
 						</div>
 					</div>
 					<div class="form-group">

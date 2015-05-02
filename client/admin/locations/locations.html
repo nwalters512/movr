@@ -1,0 +1,11 @@
+<template name="locations">
+	<div class="admin-header">
+		<div class="admin-header-title">
+			<h1>Locations</h1>
+		</div>
+		<div class="admin-header-right">
+			<button type="button" class="btn btn-primary btn-raised new-location">Add location</button>
+		</div>
+	</div>
+	{{> reactiveTable collection=locations settings=settings}}
+</template>

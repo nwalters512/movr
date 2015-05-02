@@ -4,16 +4,6 @@ Template.allPassList.events({
 	}
 });
 
-Template.pendingPassList.helpers({
-	'passes': function() {
-		return Passes.find({}, {sort: {createdDate: -1}}).fetch();
-	}
-});
-
-Template.pendingPassList.rendered  = function() {
-	$.material.init();
-};
-
 Template.allPassList.helpers({
 	'passes': function() {
 		return Passes.find({}, {sort: {createdDate: -1}}).fetch();

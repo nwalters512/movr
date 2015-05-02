@@ -1,3 +1,26 @@
+AppController = RouteController.extend({
+	onBeforeAction: function() {
+		if (!Meteor.userId()) {
+			this.redirect('/login');
+		} else {
+			this.next();
+		}
+	}
+});
+
+AdminController = AppController.extend({
+	layoutTemplate: 'AdminLayout',
+
+	onBeforeAction: function() {
+		if(Roles.isUserInRole(Meteor.userId(), ['admin'])) {
+			this.next();
+		} else {
+
+		}
+	}
+
+});
+
 // Routing stuff goes here
 Router.route('/', function() {
 	// Default to the "all page
@@ -15,19 +38,7 @@ Router.route('/app', function() {
 	this.redirect('/app/passes/all');
 })
 
-Router.route('/app/admin', function() {
-	this.layout('AdminLayout');
-});
 
-Router.route('/app/admin/students', function() {
-	this.layout('AdminLayout');
-	this.render('students', {to: 'content'});
-});
-
-Router.route('/app/admin/students/new', function() {
-	this.layout('AdminLayout');
-	this.render('newStudent', {to: 'content'});
-});
 
 Router.route('/app/passes/all', function() {
 	this.layout('AppLayout');
@@ -37,22 +48,4 @@ Router.route('/app/passes/all', function() {
 Router.route('/app/passes/new', function() {
 	this.layout('AppLayout');
 	this.render('newPass', {to: 'content'});
-});
-
-Router.route('/app/passes/pending', function() {
-	this.layout('AppLayout');
-	this.render('pendingPassList', {to: 'content'});
-});
-
-// Redirect to login page if trying to access app and not logged in
-loginRedirect = function() {
-	if (!Meteor.userId()) {
-		this.redirect('/login');
-	} else {
-		this.next();
-	}
-};
-
-Router.onBeforeAction(loginRedirect, {
-	only: ['/app/(.*)']
 });

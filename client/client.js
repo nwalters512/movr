@@ -24,6 +24,18 @@ UI.registerHelper('activeIfRouteMatches', function(route) {
 	return currentRoute && pattern.test(currentRoute.route.getName()) ? 'active' : '';
 });
 
+UI.registerHelper('locationNameForId', function(locationId) {
+	var name;
+	var location = Locations.findOne({_id: locationId});
+	if(location) {
+		name = location.name;
+	} else {
+		name = "***Name not found***";
+	}
+
+	return name;
+});
+
 
 Template.appLayout.rendered = function() {
 	$.material.init();

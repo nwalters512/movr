@@ -20,3 +20,8 @@ Meteor.publish("passes", function() {
 
 	throw new Meteor.error(403, "You do not have permission to view passes!");
 });
+
+// Publish locations to all users
+Meteor.publish(null, function() {
+	return Locations.find({});
+});

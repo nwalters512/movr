@@ -1,35 +1,39 @@
-if(Meteor.isClient) {
-	Template.students.events({
-		'click .new-student': function() {
-			Router.go('/app/admin/students/new');
-		}
-	});
+Template.students.events({
+	'click .new-student': function() {
+		Router.go('/app/admin/students/new');
+	}
+});
 
-	Template.newStudent.events({
-		'submit .new-student': function(event) {
-			var firstNameVal = event.target.firstName.value;
-			var lastNameVal = event.target.lastName.value;
-			var emailVal = event.target.email.value;
-			var studentIdVal = event.target.studentId.value;
-			var passwordVal = event.target.password.value;
+Template.students.helpers({
+	students: function() {
+		return Meteor.users.find({ roles: { $in: ['student']}});
+	},
 
-			var userData = {
-				firstName: firstNameVal,
-				lastName: lastNameVal,
-				email: emailVal,
-				studentId: studentIdVal,
-				password: passwordVal
-			};
-
-			Meteor.call('createStudent', userData, function(error, result) {
-				if (!error) {
-					Router.go('/app/admin/students');
-				} else {
-					console.log("Error adding user! " + error);
+	settings: function() {
+		return {
+			rowsPerPage: 30,
+			showFilter: true,
+			fields: [{
+				key: 'profile.lastName',
+				label: "Last Name"
+			}, {
+				key: 'profile.firstName',
+				label: "First Name"
+			}, {
+				key: 'profile.studentId',
+				label: "Student ID"
+			}, {
+				key: 'emails',
+				label: 'Emails',
+				fn: function(value, object) {
+					// Create a comma-separated list of all emails
+					var emailString = value[0].address;
+					for(var i = 1; i < value.length; i++) {
+						emailString = emailString.concat(',', value[i].address);
+					}
+					return emailString;
 				}
-			});
-
-			return false;
-		}
-	})
-}
+			}]
+		};
+	}
+});
