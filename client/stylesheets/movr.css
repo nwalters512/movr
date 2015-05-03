@@ -21,32 +21,6 @@ body {
 	position: relative;
 }
 
-ul.pass_list {
-	padding: 15px 0px 5px;
-	margin: 0px;
-}
-
-ul.pass_list li {
-	position: relative;
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-}
-
-ul.pass_list li a.new-pass {
-	display: block;
-	text-decoration: none;
-}
-
-li.pass h3 {
-	margin: 0px 0px 1em 0px;
-}
-
-li.pass p {
-	margin: 0px 0px 5px 0px;
-	font-size: 13px;
-}
-
 .btn-fab {
 	position: absolute;
 	bottom: 15px;
@@ -55,4 +29,8 @@ li.pass p {
 
 .panel-new-pass {
 	margin-top: 15px;
+}
+
+.nav .navbar-user {
+	background-color: #4EB7AC;
 }

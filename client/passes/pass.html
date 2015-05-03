@@ -1,11 +1,14 @@
 <template name="pass">
-	<li class="pass">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<h3>{{locationNameForId destination}}</h3>
-				<p><b>Date of pass:</b> <span class="pass_date">{{formatDate pass_date "short"}}</span></p>
-				<a class="btn btn-warning btn-flat delete-pass">Delete</a>
-			</div>
-		</div>
-	</li>
+    <li class="pass">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>{{locationNameForId destination}}</h3>
+                {{#if locationHasAliases destination}}
+                <p><b>AKA:</b> {{locationAliasesForIdAsString destination}}</p>
+                {{/if}}
+                <p><b>Date of pass:</b> <span class="pass_date">{{formatDate pass_date "short"}}</span></p>
+                <a class="btn btn-warning btn-flat delete-pass">Delete</a>
+            </div>
+        </div>
+    </li>
 </template>

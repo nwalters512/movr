@@ -1,4 +1,4 @@
-Template.adminLayout.rendered = function() {
+Template.adminLayout.onRendered(function() {
 
 	function resizeAdminPanel() {
 		var navHeight = $("nav.navbar").height();
@@ -10,4 +10,4 @@ Template.adminLayout.rendered = function() {
 	$(window).resize(function() {
 		resizeAdminPanel();
 	});
-};
+});

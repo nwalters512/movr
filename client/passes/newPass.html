@@ -1,33 +1,33 @@
 <template name="newPass">
-	<div class="panel panel-default panel-new-pass">
-		<div class="panel-body">
-			<form class="form-horizontal new-pass">
-				<fieldset>
-					<div class="form-group">
-						<label for="inputPassDate" class="col-lg-4 control-label">Date of Pass</label>
-						<div class="col-lg-8">
-							<input type="text" name="passDate" class="form-control" id="inputPassDate">
-							<button type="button" class="btn btn-default btn-raised today">Today</button>
-							<button type="button" class="btn btn-default btn-raised tomorrow">Tomorrow</button>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="input-destination" class="col-lg-4 control-label">Destination</label>
-						<div class="col-lg-8">
-						<select name="destination" class="form-control" id="input-destination">
-							{{#each generateLocationOptions}}
-							<option value="{{value}}">{{name}}</option>
-							{{/each}}
-						</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-lg-8 col-lg-offset-4">
-							<button type="submit" class="btn btn-primary">Create Pass</button>
-						</div>
-					</div>
-				</fieldset>
-			</form>
-		</div>
-	</div>
+    <div class="panel panel-default panel-new-pass">
+        <div class="panel-body">
+            <form class="form-horizontal new-pass">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="inputPassDate" class="col-lg-4 control-label">Date of Pass</label>
+                        <div class="col-lg-8">
+                            <input type="text" name="passDate" class="form-control" id="inputPassDate">
+                            <button type="button" class="btn btn-default btn-raised today">Today</button>
+                            <button type="button" class="btn btn-default btn-raised tomorrow">Tomorrow</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-destination" class="col-lg-4 control-label">Destination</label>
+                        <div class="col-lg-8">
+                            <select name="destination" class="form-control" id="input-destination">
+                                {{#each generateLocationOptions}}
+                                <option value="{{value}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-8 col-lg-offset-4">
+                            <button type="submit" class="btn btn-primary">Create Pass</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </template>

@@ -1,0 +1,26 @@
+ul.pass_list {
+    padding: 15px 0px 5px;
+    margin: 0px;
+}
+
+ul.pass_list li {
+    position: relative;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.pass_list li a.new-pass {
+    display: block;
+    text-decoration: none;
+}
+
+li.pass p {
+    margin: 0px 0px 5px 0px;
+    font-size: 13px;
+}
+
+.pass h3 {
+    margin: 0;
+    margin-bottom: 10px;
+}
