@@ -27,37 +27,14 @@ Template.newPass.events({
     }
 });
 
-Template.newPass.helpers({
-    generateLocationOptions: function() {
-        var locationOptions = [];
-        var allLocations = Locations.find({}).fetch();
-        // For each location, add its name and all aliases to an array
-        _.each(allLocations, function(location) {
-            locationOptions.push({
-                value: location._id,
-                name: location.name
-            });
-            _.each(location.aliases, function(alias) {
-                locationOptions.push({
-                    value: location._id,
-                    name: alias
-                });
-            });
-        });
-
-        // Now sort the array alphabetically
-        return _.sortBy(locationOptions, function(location) {
-            return location.name;
-        });
-    }
-});
-
-Template.newPass.rendered = function() {
+Template.newPass.onRendered(function() {
     // Default to the current date
     $("#inputPassDate").datepicker({
         startDate: new Date()
     });
     $("#inputPassDate").datepicker('update', new Date());
 
-    $("#input-destination").select2();
-};
+    $("#input-destination").select2({
+    	placeholder: "Select your destination"
+    });
+});

@@ -35,8 +35,17 @@ Router.route('/login', function() {
     });
 });
 
+// After login, the user is redirected to '/app'
 Router.route('/app', function() {
-    this.redirect('/app/passes/all');
+    if(Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+        this.redirect('/app/admin/');
+    } else if (Roles.userIsInRole(Meteor.userId(), ['teacher'])) {
+        // Do something
+    } else if (Roles.userIsInRole(Meteor.userId(), ['student'])) {
+        this.redirect('/app/passes/all');
+    }
+}, {
+    controller: 'AppController'
 })
 
 Router.route('/app/passes/all', function() {
@@ -44,6 +53,8 @@ Router.route('/app/passes/all', function() {
     this.render('allPassList', {
         to: 'content'
     });
+}, {
+    controller: 'AppController'
 });
 
 Router.route('/app/passes/new', function() {
@@ -51,4 +62,6 @@ Router.route('/app/passes/new', function() {
     this.render('newPass', {
         to: 'content'
     });
+}, {
+    controller: 'AppController'
 });

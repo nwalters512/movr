@@ -9,6 +9,16 @@ Meteor.publish("students", function() {
 	return;
 });
 
+Meteor.publish("teachers", function() {
+	if(Roles.userIsInRole(this.userId, ['admin'])) {
+		return Meteor.users.find({ roles: { $in: ['teacher']}}, 
+			{fields: {'emails': 1, 'profile': 1, 'roles': 1}});
+	}
+	
+	this.stop();
+	return;
+});
+
 Meteor.publish("passes", function() {
 	var studentId = Meteor.users.findOne({_id: this.userId}).profile.studentId;
 	if(studentId) {

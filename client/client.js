@@ -1,4 +1,5 @@
 Meteor.subscribe("students");
+Meteor.subscribe("teachers");
 Meteor.subscribe("passes");
 
 // Used for formatting dates in handlebars
@@ -63,6 +64,29 @@ UI.registerHelper('locationHasAliases', function(locationId) {
         return false;
     }
     return false;
+});
+
+UI.registerHelper('generateLocationOptions', function() {
+    var locationOptions = [];
+    var allLocations = Locations.find({}).fetch();
+    // For each location, add its name and all aliases to an array
+    _.each(allLocations, function(location) {
+        locationOptions.push({
+            value: location._id,
+            name: location.name
+        });
+        _.each(location.aliases, function(alias) {
+            locationOptions.push({
+                value: location._id,
+                name: alias
+            });
+        });
+    });
+
+    // Now sort the array alphabetically
+    return _.sortBy(locationOptions, function(location) {
+        return location.name;
+    });
 });
 
 UI.registerHelper('currentUserProfile', function() {

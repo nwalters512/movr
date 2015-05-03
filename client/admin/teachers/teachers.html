@@ -1,0 +1,11 @@
+<template name="teachers">
+	<div class="admin-header">
+		<div class="admin-header-title">
+			<h1>Teachers</h1>
+		</div>
+		<div class="admin-header-right">
+			<button type="button" class="btn btn-primary btn-raised new-teacher">Add teacher</button>
+		</div>
+	</div>
+	{{> reactiveTable collection=teachers settings=settings}}
+</template>

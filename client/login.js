@@ -9,6 +9,7 @@ if(Meteor.isClient) {
 					console.log("Error logging in user: " + error);
 					Session.set("loginError", true);
 				} else {
+					Session.set("loginError", false);
 					Router.go('/app');
 				}
 			});

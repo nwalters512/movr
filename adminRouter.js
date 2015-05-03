@@ -16,6 +16,13 @@ Router.route('/app/admin/students/new', function() {
 });
 
 Router.route('/app/admin/teachers', function() {
+	this.render('teachers', {to: 'content'});
+}, {
+	controller: 'AdminController'
+});
+
+Router.route('/app/admin/teachers/new', function() {
+	this.render('newTeacher', {to: 'content'});
 }, {
 	controller: 'AdminController'
 });

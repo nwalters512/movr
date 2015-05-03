@@ -1,0 +1,58 @@
+<template name="newTeacher">
+    <div class="admin-header">
+        <div class="admin-header-title">
+            <h1>New Teacher</h1>
+        </div>
+    </div>
+    <form class="form-horizontal new-teacher">
+        <fieldset>
+            <div class="form-group">
+                <label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
+                <div class="col-lg-4">
+                    <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First Name" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputLastName" class="col-lg-2 control-label">Last Name</label>
+                <div class="col-lg-4">
+                    <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last Name" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-4">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-4">
+                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-seminar-location" class="col-lg-2 control-label">Seminar Location</label>
+                <div class="col-lg-4">
+                    <select name="seminarLocation" class="form-control" id="input-seminar-location">
+                        <option></option>
+                        {{#each generateLocationOptions}}
+                        <option value="{{value}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <span>If this teacher does not have a seminar location, this can be left blank. However, students will be unable to request a pass from this teacher.</span>
+                </div>
+            </div>
+            {{#if createTeacherHasError}}
+            <div class="form-group has-error">
+                <label for="inputPassword" class="control-label col-lg-10 col-lg-offset-2" style="text-align:left;">Error: {{createTeacherError}}</label>
+            </div>
+            {{/if}}
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Create Teacher</button>
+                    <button type="button" class="btn btn-warning btn-raised cancel">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</template>
