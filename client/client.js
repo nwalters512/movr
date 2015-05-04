@@ -1,6 +1,8 @@
-Meteor.subscribe("students");
-Meteor.subscribe("teachers");
-Meteor.subscribe("passes");
+Deps.autorun(function() {
+    Meteor.subscribe("students");
+    Meteor.subscribe("teachers");
+    Meteor.subscribe("passes");
+});
 
 // Used for formatting dates in handlebars
 // Usage: {{formatDate <string> "<formatterName>"}}
@@ -26,9 +28,7 @@ UI.registerHelper('activeIfRouteMatches', function(route) {
 
 UI.registerHelper('locationNameForId', function(locationId) {
     var name;
-    var location = Locations.findOne({
-        _id: locationId
-    });
+    var location = Locations.findOne(locationId);
     if (location) {
         name = location.name;
     } else {

@@ -34,7 +34,6 @@ Meteor.methods({
 			Passes.remove(passId);
 		} else {
 			throw new Meteor.Error(403, "403: Permission Denied", "You do not have permission to delete this pass.");
-		}
-		
+		}	
 	}
 });

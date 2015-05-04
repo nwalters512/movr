@@ -65,3 +65,9 @@ Router.route('/app/passes/new', function() {
 }, {
     controller: 'AppController'
 });
+
+Router.route('/app/signInOut', function() {
+    this.render('seminarSignInOut');
+}, {
+    controller: 'AppController'
+})

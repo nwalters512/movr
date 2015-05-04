@@ -23,12 +23,12 @@ Meteor.publish("passes", function() {
 	var studentId = Meteor.users.findOne({_id: this.userId}).profile.studentId;
 	if(studentId) {
 		return Passes.find({owner: studentId});
-	} else if (Roles.userIsInRole(this.userId, ['admin'])) {
-		// Admins can view all passes
+	} else if (Roles.userIsInRole(this.userId, ['admin', 'teacher'])) {
+		// Admins and teachers can view all passes
 		return Passes.find({});
 	}
 
-	throw new Meteor.error(403, "You do not have permission to view passes!");
+	throw new Meteor.Error(403, "You do not have permission to view passes!");
 });
 
 // Publish locations to all users

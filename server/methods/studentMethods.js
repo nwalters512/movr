@@ -20,5 +20,9 @@ Meteor.methods({
 		});
 
 		Roles.addUsersToRoles(id, ['student']);
+	}, 
+
+	getStudentById: function(studentId) {
+		return Meteor.users.findOne({ roles: {$in: ['student']}, "profile.studentId": studentId});
 	}
 });

@@ -1,0 +1,54 @@
+<template name="seminarSignInOut">
+    <button class="btn btn-default btn-flat close-sign-in-out">Close</button>
+    <div class="container seminar-welcome">
+        {{> Template.dynamic template=whichTemplate}}
+    </div>
+</template>
+<!-- Displayed to welcome students to the sign in/out flow. They will be prompted to enter their id. -->
+<template name="seminarWelcome">
+    <h1>Welcome!</h1>
+    <h3>Please enter your student ID below.</h3>
+    <div class="form-group">
+        <input type="number" id="student-id" class="form-control"> {{#if invalidStudentId}}
+        <span>No student found with that ID. Please try again.</span> {{/if}}
+    </div>
+    <button class="btn btn-primary btn-raised btn-submit-id">Go</button>
+</template>
+<!-- Prompts students to choose if they're signing in our out -->
+<template name="seminarSelectSignInOrOut">
+    <h1>Hi {{studentName}}.</h1>
+    <h3>Do you want to sign in or sign out?</h3>
+    <button class="btn btn-primary btn-raised btn-sign-in">Sign In</button>
+    <button class="btn btn-warning btn-raised btn-sign-out">Sign Out</button>
+    <button class="btn btn-flat btn-cancel">Cancel</button>
+</template>
+<!-- Displayed once the user has successfully been signed into a location -->
+<template name="seminarSignInComplete">
+    <h1>Thanks!</h1>
+    <h3>Enjoy your visit.</h3>
+</template>
+<!-- Prompts the user to select where they're going next -->
+<template name="seminarSignOut">
+    {{#if studentHasPassesForToday}}
+    <h1>Where are you headed?</h1>
+    <h3>Please select your destination.</h3>
+    <ul class="destination-list list-group">
+        {{#each todaysDestinations}}
+        <li class="list-group-item destination">
+            <span class="destination-name">{{locationNameForId destination}}</span> {{#if locationHasAliases destination}}
+            <span class="destination-aliases">AKA: {{locationAliasesForIdAsString destination}}</span> {{/if}}
+        </li> {{/each}}
+        <li class="list-group-item destination-seminar"><span class="destination-name">I'm heading back to seminar.</span></li>
+        <li class="list-group-item destination-not-found"><span class="destination-name">I don't see my destination.</span></li>
+    </ul>
+    {{else}}
+    <h1>Uh oh...</h1>
+    <h3>Looks like you don't have any passes for today. Go create a pass or two and try again.</h3>
+    <button class="btn btn-primary btn-raised btn-ok">OK</button>
+    {{/if}}
+</template>
+<!-- Displayed once the user has successfully signed out of a location -->
+<template name="seminarSignOutComplete">
+    <h1>Thanks. Safe travels!</h1>
+    <h3>Don't forget to sign in when you arrive at your destination.</h3>
+</template>
